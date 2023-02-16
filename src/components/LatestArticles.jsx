@@ -3,8 +3,8 @@ import React from 'react';
 import { Container, Box, Typography, Grid } from '@mui/material';
 
 import ActionAreaCard from './CardArticle';
-import currecy from '@/images/image-currecy.jpg';
-import restaurant from '@/images/image-restaurant.jp';
+import currecy from '@/images/image-currency.jpg';
+import restaurant from '@/images/image-restaurant.jpg';
 import plane from '@/images/image-plane.jpg';
 import confetti from '@/images/image-confetti.jpg';
 
@@ -17,7 +17,7 @@ const articles = [
     text: 'The world is getting smaller and we’re becoming more mobile. So why should you be forced to only receive money in a single ...',
   },
   {
-    imagen: restaurant,
+    imagen:restaurant,
     alt: 'image restaurant',
     writer: 'Wilson Hutton',
     title: 'Treat yourself without worrying about money',
