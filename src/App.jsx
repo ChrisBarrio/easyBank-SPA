@@ -13,7 +13,7 @@ function App() {
       <HeroSection />
       <WhyChoose/>
       <LatestArticles/>
-      <Footer />
+      <Footer   />
     </Container>
   );
 }

@@ -31,8 +31,8 @@ function Header(props) {
   // navbar open
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Box sx={{py: 3}}>
-        <Logo />
+      <Box sx={{ py: 3 }}>
+        <Logo fill="#2d314d" />
       </Box>
       <Divider />
       <List>
@@ -68,8 +68,11 @@ function Header(props) {
           >
             <GiHamburgerMenu />
           </Button>
-          <Box component="div" sx={{ display: { xs: 'none', sm: 'flex' } }}>
-            <Logo />
+          <Box component="div" sx={{ display: { xs: 'flex', sm: 'flex' } }}>
+            <Logo
+              fill="#2d314d
+"
+            />
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, mx: 'auto' }}>
             {navItems.map((item) => (
