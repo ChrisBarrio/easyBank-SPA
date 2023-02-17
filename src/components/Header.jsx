@@ -8,19 +8,26 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import Logo from '@/components/icons/Logo';
 import BtnLogin from '@/components/BtnLogin';
 
-const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact', 'Blog', 'Careers'];
+const drawerWidth = 260;
 
-function Header(props) {
+const navItems = [
+  { page: 'Home', path: '/' },
+  { page: 'About', path: '/about' },
+  { page: 'Contact', path: '/contact' },
+  { page: 'Blog', path: '/blog' },
+  { page: 'Careers', path: '/careers' },
+];
+
+const Header = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -32,16 +39,21 @@ function Header(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Box sx={{ py: 3 }}>
-        <Logo fill="#2d314d" />
+        <Link to="/">
+          <Logo fill="#2d314d" />
+        </Link>
       </Box>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: 'center', textTransform: 'capitalize' }}
-            >
-              <ListItemText primary={item} />
+        {navItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Link
+                to={item.path}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                {item.page}
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -69,15 +81,12 @@ function Header(props) {
             <GiHamburgerMenu />
           </Button>
           <Box component="div" sx={{ display: { xs: 'flex', sm: 'flex' } }}>
-            <Logo
-              fill="#2d314d
-"
-            />
+            <Logo fill="#2d314d" />
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, mx: 'auto' }}>
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Button
-                key={item}
+                key={index}
                 sx={{
                   color: '#647E68',
                   fontWeight: 500,
@@ -85,7 +94,12 @@ function Header(props) {
                   textTransform: 'capitalize',
                 }}
               >
-                {item}
+                <Link
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  to={item.path}
+                >
+                  {item.page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -116,7 +130,7 @@ function Header(props) {
       </Box>
     </Box>
   );
-}
+};
 
 Header.propTypes = {
   /**

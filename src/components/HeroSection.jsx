@@ -7,10 +7,11 @@ import { Typography, Container } from '@mui/material';
 import BtnLogin from '@/components/BtnLogin';
 import ImgHero from '@/components/ImgHero';
 
+
 const HeroSection = () => {
   return (
     <Container maxWidth="lg">
-      <Box sx={{ flexGrow: 1, my:8 }}>
+      <Box sx={{ flexGrow: 1, my: 8 }}>
         <Grid
           container
           spacing={2}
