@@ -16,6 +16,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 import Logo from '@/components/icons/Logo';
 import BtnLogin from '@/components/BtnLogin';
+import LoginUser from '@/components/LoginUser';
 
 const drawerWidth = 260;
 
@@ -30,6 +31,10 @@ const navItems = [
 const Header = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const [open, setOpen] = React.useState(false);
+  const handleModalOpen = () => setOpen(true);
+  const handleModalClose = () => setOpen(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -58,9 +63,9 @@ const Header = (props) => {
           </ListItem>
         ))}
       </List>
-      <Box>
+      <Button onClick={handleModalOpen}>
         <BtnLogin />
-      </Box>
+      </Button>
     </Box>
   );
 
@@ -104,7 +109,9 @@ const Header = (props) => {
             ))}
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <BtnLogin />
+            <Button onClick={handleModalOpen}>
+              <BtnLogin />
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -128,6 +135,11 @@ const Header = (props) => {
           {drawer}
         </Drawer>
       </Box>
+      <LoginUser
+        open={open}
+        setOpen={setOpen}
+        handleModalClose={handleModalClose}
+      />
     </Box>
   );
 };
